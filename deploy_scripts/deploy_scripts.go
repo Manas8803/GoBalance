@@ -33,7 +33,7 @@ func env() *awscdk.Environment {
 	err := godotenv.Load(".env")
 	if err != nil {
 		log.Println("Error loading env : ", err)
-		return nil
+		log.Println("Continuing..")
 	}
 	return &awscdk.Environment{
 		Account: jsii.String(os.Getenv("CDK_DEFAULT_ACCOUNT")),
