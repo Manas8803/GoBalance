@@ -10,3 +10,4 @@ TIMELINE.md
 /load_balancer/standby_nodes.txt
 
 /app_server/app_server
+/app_server/worker.log
