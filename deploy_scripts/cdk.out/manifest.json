@@ -1,0 +1,444 @@
+{
+  "version": "38.0.1",
+  "artifacts": {
+    "GoBalanceStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "GoBalanceStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "GoBalanceStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://637423233104/ap-south-1",
+      "properties": {
+        "templateFile": "GoBalanceStack.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "notificationArns": [],
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::637423233104:role/cdk-hnb659fds-deploy-role-637423233104-ap-south-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::637423233104:role/cdk-hnb659fds-cfn-exec-role-637423233104-ap-south-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-637423233104-ap-south-1/7036b5d8c8a5a968a043c843ed3bcd5a964f55d2a6e79156266a8468de94fe49.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "GoBalanceStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::637423233104:role/cdk-hnb659fds-lookup-role-637423233104-ap-south-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "GoBalanceStack.assets"
+      ],
+      "metadata": {
+        "/GoBalanceStack/GoBalanceVPC/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GoBalanceVPC4F3A770E"
+          }
+        ],
+        "/GoBalanceStack/GoBalanceVPC/PublicSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GoBalanceVPCPublicSubnet1Subnet1845965C"
+          }
+        ],
+        "/GoBalanceStack/GoBalanceVPC/PublicSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GoBalanceVPCPublicSubnet1RouteTable3340E671"
+          }
+        ],
+        "/GoBalanceStack/GoBalanceVPC/PublicSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GoBalanceVPCPublicSubnet1RouteTableAssociationB20E56B7"
+          }
+        ],
+        "/GoBalanceStack/GoBalanceVPC/PublicSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GoBalanceVPCPublicSubnet1DefaultRouteF3DE205D"
+          }
+        ],
+        "/GoBalanceStack/GoBalanceVPC/PublicSubnet1/EIP": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GoBalanceVPCPublicSubnet1EIPA1A919BE"
+          }
+        ],
+        "/GoBalanceStack/GoBalanceVPC/PublicSubnet1/NATGateway": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GoBalanceVPCPublicSubnet1NATGatewayB7832E24"
+          }
+        ],
+        "/GoBalanceStack/GoBalanceVPC/PublicSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GoBalanceVPCPublicSubnet2Subnet407B78A5"
+          }
+        ],
+        "/GoBalanceStack/GoBalanceVPC/PublicSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GoBalanceVPCPublicSubnet2RouteTable1C0107B1"
+          }
+        ],
+        "/GoBalanceStack/GoBalanceVPC/PublicSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GoBalanceVPCPublicSubnet2RouteTableAssociationADD126B5"
+          }
+        ],
+        "/GoBalanceStack/GoBalanceVPC/PublicSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GoBalanceVPCPublicSubnet2DefaultRouteA3BD7CAB"
+          }
+        ],
+        "/GoBalanceStack/GoBalanceVPC/PublicSubnet2/EIP": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GoBalanceVPCPublicSubnet2EIPF9695B6A"
+          }
+        ],
+        "/GoBalanceStack/GoBalanceVPC/PublicSubnet2/NATGateway": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GoBalanceVPCPublicSubnet2NATGateway0A00AF29"
+          }
+        ],
+        "/GoBalanceStack/GoBalanceVPC/PrivateSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GoBalanceVPCPrivateSubnet1SubnetE0D9743C"
+          }
+        ],
+        "/GoBalanceStack/GoBalanceVPC/PrivateSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GoBalanceVPCPrivateSubnet1RouteTableAAD010B8"
+          }
+        ],
+        "/GoBalanceStack/GoBalanceVPC/PrivateSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GoBalanceVPCPrivateSubnet1RouteTableAssociation60E0DDAB"
+          }
+        ],
+        "/GoBalanceStack/GoBalanceVPC/PrivateSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GoBalanceVPCPrivateSubnet1DefaultRoute6A6EBD55"
+          }
+        ],
+        "/GoBalanceStack/GoBalanceVPC/PrivateSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GoBalanceVPCPrivateSubnet2SubnetC0D8BE99"
+          }
+        ],
+        "/GoBalanceStack/GoBalanceVPC/PrivateSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GoBalanceVPCPrivateSubnet2RouteTable33873A95"
+          }
+        ],
+        "/GoBalanceStack/GoBalanceVPC/PrivateSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GoBalanceVPCPrivateSubnet2RouteTableAssociation591F72C6"
+          }
+        ],
+        "/GoBalanceStack/GoBalanceVPC/PrivateSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GoBalanceVPCPrivateSubnet2DefaultRoute49A77C78"
+          }
+        ],
+        "/GoBalanceStack/GoBalanceVPC/IGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GoBalanceVPCIGWC9206C70"
+          }
+        ],
+        "/GoBalanceStack/GoBalanceVPC/VPCGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GoBalanceVPCVPCGWA95CADFC"
+          }
+        ],
+        "/GoBalanceStack/GoBalanceVPC/RestrictDefaultSecurityGroupCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GoBalanceVPCRestrictDefaultSecurityGroupCustomResourceB6ABEA7D"
+          }
+        ],
+        "/GoBalanceStack/Custom::VpcRestrictDefaultSGCustomResourceProvider": [
+          {
+            "type": "aws:cdk:is-custom-resource-handler-customResourceProvider",
+            "data": true
+          }
+        ],
+        "/GoBalanceStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Role": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomVpcRestrictDefaultSGCustomResourceProviderRole26592FE0"
+          }
+        ],
+        "/GoBalanceStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Handler": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomVpcRestrictDefaultSGCustomResourceProviderHandlerDC833E5E"
+          }
+        ],
+        "/GoBalanceStack/GoBalance_Worker-SG/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GoBalanceWorkerSG7E790175"
+          }
+        ],
+        "/GoBalanceStack/GoBalance_LB-SG/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GoBalanceLBSGB400D1C4"
+          }
+        ],
+        "/GoBalanceStack/AssetsBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetsBucket5CB76180"
+          }
+        ],
+        "/GoBalanceStack/AssetsBucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetsBucketPolicyFFACF6C4"
+          }
+        ],
+        "/GoBalanceStack/AssetsBucket/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetsBucketAutoDeleteObjectsCustomResource51BA1286"
+          }
+        ],
+        "/GoBalanceStack/Custom::S3AutoDeleteObjectsCustomResourceProvider": [
+          {
+            "type": "aws:cdk:is-custom-resource-handler-customResourceProvider",
+            "data": true
+          }
+        ],
+        "/GoBalanceStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
+          }
+        ],
+        "/GoBalanceStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F"
+          }
+        ],
+        "/GoBalanceStack/AppServerDeployment/AwsCliLayer/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AppServerDeploymentAwsCliLayer9C2FCE18"
+          }
+        ],
+        "/GoBalanceStack/AppServerDeployment/CustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AppServerDeploymentCustomResource443482F6"
+          }
+        ],
+        "/GoBalanceStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C": [
+          {
+            "type": "aws:cdk:is-custom-resource-handler-singleton",
+            "data": true
+          },
+          {
+            "type": "aws:cdk:is-custom-resource-handler-runtime-family",
+            "data": 2
+          },
+          {
+            "type": "aws:cdk:is-custom-resource-handler-singleton",
+            "data": true
+          },
+          {
+            "type": "aws:cdk:is-custom-resource-handler-runtime-family",
+            "data": 2
+          }
+        ],
+        "/GoBalanceStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265"
+          }
+        ],
+        "/GoBalanceStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF"
+          }
+        ],
+        "/GoBalanceStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536"
+          }
+        ],
+        "/GoBalanceStack/LoadBalancerDeployment/AwsCliLayer/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LoadBalancerDeploymentAwsCliLayerA1B64B5C"
+          }
+        ],
+        "/GoBalanceStack/LoadBalancerDeployment/CustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LoadBalancerDeploymentCustomResourceBD30E677"
+          }
+        ],
+        "/GoBalanceStack/WorkerInstance1/InstanceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WorkerInstance1InstanceRoleD2335EB9"
+          }
+        ],
+        "/GoBalanceStack/WorkerInstance1/InstanceProfile": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WorkerInstance1InstanceProfileB084767E"
+          }
+        ],
+        "/GoBalanceStack/WorkerInstance1/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WorkerInstance17A892C48"
+          }
+        ],
+        "/GoBalanceStack/WorkerInstance2/InstanceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WorkerInstance2InstanceRole11D59E10"
+          }
+        ],
+        "/GoBalanceStack/WorkerInstance2/InstanceProfile": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WorkerInstance2InstanceProfileF55F8ECC"
+          }
+        ],
+        "/GoBalanceStack/WorkerInstance2/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WorkerInstance2E3C4FA1C"
+          }
+        ],
+        "/GoBalanceStack/WorkerInstance3/InstanceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WorkerInstance3InstanceRoleBEB108DE"
+          }
+        ],
+        "/GoBalanceStack/WorkerInstance3/InstanceProfile": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WorkerInstance3InstanceProfile3EF97076"
+          }
+        ],
+        "/GoBalanceStack/WorkerInstance3/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WorkerInstance3A02D8C0A"
+          }
+        ],
+        "/GoBalanceStack/WorkerInstance4/InstanceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WorkerInstance4InstanceRoleE349D3FF"
+          }
+        ],
+        "/GoBalanceStack/WorkerInstance4/InstanceProfile": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WorkerInstance4InstanceProfile1D7EC663"
+          }
+        ],
+        "/GoBalanceStack/WorkerInstance4/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WorkerInstance43402CBF1"
+          }
+        ],
+        "/GoBalanceStack/WorkerInstance5/InstanceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WorkerInstance5InstanceRole71F5134D"
+          }
+        ],
+        "/GoBalanceStack/WorkerInstance5/InstanceProfile": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WorkerInstance5InstanceProfileF4E8DC55"
+          }
+        ],
+        "/GoBalanceStack/WorkerInstance5/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WorkerInstance54C70B8B5"
+          }
+        ],
+        "/GoBalanceStack/LoadBalancerInstance/InstanceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LoadBalancerInstanceInstanceRole8B41295A"
+          }
+        ],
+        "/GoBalanceStack/LoadBalancerInstance/InstanceProfile": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LoadBalancerInstanceInstanceProfile7533126B"
+          }
+        ],
+        "/GoBalanceStack/LoadBalancerInstance/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LoadBalancerInstance4D2E5D57"
+          }
+        ],
+        "/GoBalanceStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/GoBalanceStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/GoBalanceStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "GoBalanceStack"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}

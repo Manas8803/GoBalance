@@ -1,0 +1,7 @@
+go 1.23.1
+
+use ./load_balancer
+
+use ./app_server
+
+use ./deploy_scripts

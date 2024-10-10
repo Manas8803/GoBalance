@@ -1,0 +1,2 @@
+WORKER - 1 : 2024/10/02 22:37:45 worker.go:99: Worker 1 initialized successfully
+WORKER - 1 : 2024/10/02 22:37:45 main.go:28: Server is running on :8080

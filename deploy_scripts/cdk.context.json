@@ -1,0 +1,8 @@
+{
+  "availability-zones:account=637423233104:region=ap-south-1": [
+    "ap-south-1a",
+    "ap-south-1b",
+    "ap-south-1c"
+  ],
+  "ami:account=637423233104:filters.image-type.0=machine:filters.name.0=ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*:filters.state.0=available:owners.0=099720109477:region=ap-south-1": "ami-09b0a86a2c84101e1"
+}
