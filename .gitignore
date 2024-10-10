@@ -1,4 +1,5 @@
 TIMELINE.md
-.env
-./load-balancer/.env
-./app-server/.env
+*.env
+/deploy-scripts/.env
+/deploy-scripts/assets
+/deploy-scripts/cdk.out
