@@ -1,5 +1,12 @@
 TIMELINE.md
 *.env
-/deploy-scripts/.env
-/deploy-scripts/assets
-/deploy-scripts/cdk.out
+
+/deploy_scripts/assets
+/deploy_scripts/cdk.out
+
+/load_balancer/load_balancer
+/load_balancer/all_nodes.txt
+/load_balancer/available_nodes.txt
+/load_balancer/standby_nodes.txt
+
+/app_server/app_server
