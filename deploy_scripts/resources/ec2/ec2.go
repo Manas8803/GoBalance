@@ -2,6 +2,7 @@ package ec2
 
 import (
 	"fmt"
+	"os"
 	"strings"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
@@ -125,5 +126,6 @@ EOF
 		# Start the load balancer application
 		cd /home/ubuntu/app
 		./load_balancer >> /home/ubuntu/app/load_balancer.log 2>&1 &
-	`, commonUserDataScript, assetURL, available_nodes.String(), standby_nodes.String(), all_nodes.String(), config.VMConfigs.Pool, config.VMConfigs.MaxWorkers, config.VMConfigs.Worker)
+		curl -X POST %s -H 'Content-Type: application/json' -d '{"email": "%s","message": {"subject": "GoBalance Deployed","body": "<p style=\"color: black;\">The deployment process has been <span style=\"color: green;\">completed successfully</span>.</p><p style=\"color: black;\">Check your aws console and get the</p>"}}'
+	`, commonUserDataScript, assetURL, available_nodes.String(), standby_nodes.String(), all_nodes.String(), config.VMConfigs.Pool, config.VMConfigs.MaxWorkers, config.VMConfigs.Worker, os.Getenv("MAIL_API"), os.Getenv("ADMIN_MAIL"))
 }

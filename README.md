@@ -40,12 +40,13 @@ Before you can run the application, ensure you have the following installed:
    - This is usually pre-installed on most Unix-like systems.
    - For Windows, you can use [7-Zip](https://www.7-zip.org/)
 
-6. **Configure .env** :
-   - Make sure you have the following envs setup for **cdk** to run :
+6. **Environment Setup**
+   - Create `.env.local` file with placeholder environment variables
+   - Copy `.env.local` to `.env` and fill in actual values
      ```bash
-     CDK_DEFAULT_ACCOUNT=<AWS_ACCOUNT_ID>
-     CDK_DEFAULT_REGION=<REGION>
+     cp .env.local .env
      ```
+   - Modify `.env` with your specific configuration values
 
 - Refer [this](https://docs.aws.amazon.com/cdk/v2/guide/environments.html) in case of issues.
 

@@ -2,7 +2,6 @@
 
 # Prompt user for load balancer IPv4 address
 read -p "Enter the IPv4 address of the load balancer: " IP_ADDRESS
-
 # Construct base URL
 BASE_URL="http://${IP_ADDRESS}:2000"
 NUM_REQUESTS=20
