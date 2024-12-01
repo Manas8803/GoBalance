@@ -89,13 +89,20 @@ GoBalance/
 
 ## Makefile Commands
 
-The provided Makefile contains the following commands:
+The Makefile provides the following commands:
 
-- `build`: Compiles the Go applications(web server and load balancer) for the Linux OS and creates ZIP archives.
-- `deploy`: Deploys the application using AWS CDK.
-- `destroy`: Destroys the AWS resources created by the CDK.
-- `clean`: Removes compiled binaries and ZIP files.
-- `all`: Runs destroy, clean, build, and deploy in sequence, ignoring errors from destroy.
+- `build`: Compiles Go applications for Linux (amd64) and creates ZIP archives
+  - Builds app_server and load_balancer binaries
+  - Creates ZIP archives for both components
+- `deploy`: Deploys the application using AWS CDK without requiring manual approval
+- `destroy`: Destroys AWS resources created by CDK
+- `clean`: Removes compiled binaries and ZIP files
+- `test`: Runs the test script
+- `all`: Performs a complete deployment cycle:
+  1. Attempts to destroy existing resources
+  2. Cleans up files
+  3. Builds the application
+  4. Deploys to AWS
 
 ## Running the Application
 
@@ -131,7 +138,15 @@ If you want to destroy the deployed resources, run:
 make destroy
 ```
 
-### Step 5: Run All Steps
+### Step 5: Running Tests
+
+To execute the test script:
+
+```bash
+make test
+```
+
+## Step 6: Run All Steps
 
 To run all steps (destroy, clean, build, and deploy) in one command, run:
 
