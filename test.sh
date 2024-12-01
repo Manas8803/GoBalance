@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BASE_URL="http://43.205.203.23:2000"  # Replace with your actual base URL
+BASE_URL="http://13.127.151.58:2000"  # Replace with your actual base URL
 NUM_REQUESTS=20
 
 # Function to make a single request to /api/v1/hello
@@ -55,7 +55,6 @@ for i in $(seq 1 $NUM_REQUESTS); do
 done
 
 total_requests=$NUM_REQUESTS
-avg_response_time=$(echo "scale=6; $total_time / $NUM_REQUESTS" | bc)
 
 # Print hello endpoint stats
 echo
@@ -64,7 +63,6 @@ echo "{
   \"successful_requests\": $successful_requests,
   \"failed_requests\": $failed_requests,
   \"total_requests\": $total_requests,
-  \"avg_response_time\": $avg_response_time
 }"
 
 # Get worker stats

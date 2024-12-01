@@ -63,7 +63,6 @@ func createWorkerUserDataScript(commonUserDataScript, assetURL string, workerID 
     # Create .env file with environment variables
     cat << EOF > /home/ubuntu/app/.env
 WORKER_DIR="%s"
-AVG_DELAY=%d
 FAIL_PERCENT=%f
 WORKER_ID=%d
 EOF
@@ -74,7 +73,7 @@ EOF
     # Start the worker application
     cd /home/ubuntu/app
     ./app_server >> /home/ubuntu/app/app_server.log 2>&1 &
-`, commonUserDataScript, assetURL, config.VMConfigs.StatsDir, config.VMConfigs.AvgDelay, config.VMConfigs.Failure, workerID, config.VMConfigs.StatsDir)
+`, commonUserDataScript, assetURL, config.VMConfigs.StatsDir, config.VMConfigs.Failure, workerID, config.VMConfigs.StatsDir)
 }
 
 func createLBUserDataScript(commonUserDataScript, assetURL string, worker_instances []awsec2.Instance) string {

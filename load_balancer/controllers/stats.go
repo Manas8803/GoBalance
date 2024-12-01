@@ -9,7 +9,6 @@ import (
 	"net/url"
 	"strings"
 	"sync"
-	"time"
 )
 
 // Stats handler for forwarding requests on /worker/stats route
@@ -70,28 +69,13 @@ func Stats(w http.ResponseWriter, r *http.Request) {
 			totalStats.SuccessfulRequests += stat.SuccessfulRequests
 			totalStats.FailedRequests += stat.FailedRequests
 			totalStats.TotalRequests += stat.TotalRequests
-
-			// Parse and add average delay time
-			workerAvgDelay, err := time.ParseDuration(stat.AvgDelayTime)
-			if err == nil {
-				totalAvgDelay, _ := time.ParseDuration(totalStats.AvgDelayTime)
-				totalAvgDelay += workerAvgDelay
-				totalStats.AvgDelayTime = totalAvgDelay.String()
-			}
 		}
 	}
 
-	// Calculate average delay time across all workers
-	if len(lb.LB.Workers) > 0 {
-		totalAvgDelay, _ := time.ParseDuration(totalStats.AvgDelayTime)
-		totalStats.AvgDelayTime = (totalAvgDelay / time.Duration(len(lb.LB.Workers))).String()
-	}
-
 	result := map[string]interface{}{
-		"success-request":  map[string]int{"total": totalStats.SuccessfulRequests},
-		"failed-request":   map[string]int{"total": totalStats.FailedRequests},
-		"total-request":    map[string]int{"total": totalStats.TotalRequests},
-		"avg-request-time": map[string]string{"total": totalStats.AvgDelayTime},
+		"success-request": map[string]int{"total": totalStats.SuccessfulRequests},
+		"failed-request":  map[string]int{"total": totalStats.FailedRequests},
+		"total-request":   map[string]int{"total": totalStats.TotalRequests},
 	}
 
 	// Preparing the response
@@ -100,7 +84,6 @@ func Stats(w http.ResponseWriter, r *http.Request) {
 		result["success-request"].(map[string]int)[workerName] = workerStat.SuccessfulRequests
 		result["failed-request"].(map[string]int)[workerName] = workerStat.FailedRequests
 		result["total-request"].(map[string]int)[workerName] = workerStat.TotalRequests
-		result["avg-request-time"].(map[string]string)[workerName] = workerStat.AvgDelayTime
 	}
 
 	w.Header().Set("Content-Type", "application/json")

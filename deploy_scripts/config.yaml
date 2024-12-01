@@ -2,5 +2,4 @@ pool: 30
 worker: 2
 max_workers: 5
 stats-dir: /tmp/stats
-avg-delay: 500
 failure: 10

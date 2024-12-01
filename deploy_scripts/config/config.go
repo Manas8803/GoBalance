@@ -14,7 +14,6 @@ type Config struct {
 	Worker     int     `yaml:"worker"`
 	Pool       int     `yaml:"pool"`
 	StatsDir   string  `yaml:"stats-dir"`
-	AvgDelay   int64   `yaml:"avg-delay"`
 	Failure    float64 `yaml:"failure"`
 	MaxWorkers int     `yaml:"max_workers"`
 }

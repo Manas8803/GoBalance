@@ -16,7 +16,6 @@ type WorkerStats struct {
 	SuccessfulRequests int    `json:"success_requests"`
 	FailedRequests     int    `json:"failed_requests"`
 	TotalRequests      int    `json:"total_requests"`
-	AvgDelayTime       string `json:"avg_delay_time"`
 }
 
 // Function to fetch worker stats from a given worker node

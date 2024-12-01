@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"math/rand/v2"
 	"net/http"
-	"time"
 )
 
 // Hello handler implementation application server
@@ -16,17 +15,11 @@ import (
 func Hello(w http.ResponseWriter, r *http.Request) {
 	workers.Wrkr.Logger.Printf("Received request on hello route")
 
-	// Simulate a delay
-	delay := workers.Wrkr.Delay()
-
 	// Determine the response(Success or Failure)
 	success := float64(rand.IntN(10))/10.00 >= workers.Wrkr.FailurePercent
 
-	// Augemented delay to match the actual response time
-	time.Sleep(delay - 150)
-
 	// Update the stats
-	workers.Wrkr.UpdateStats(success, delay)
+	workers.Wrkr.UpdateStats(success)
 
 	// Return a response
 	if !success {
@@ -35,7 +28,7 @@ func Hello(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	workers.Wrkr.Logger.Printf("Request successful, responded after %v", delay)
+	workers.Wrkr.Logger.Printf("Request successful")
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(map[string]string{"message": "hello-world"})
 }

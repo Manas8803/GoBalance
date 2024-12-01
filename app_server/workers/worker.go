@@ -17,7 +17,6 @@ import (
 type Worker struct {
 	ID             string
 	FailurePercent float64
-	AvgDelay       time.Duration
 	Stats          *Stats
 	StatsDir       string
 	Logger         *log.Logger
@@ -25,20 +24,18 @@ type Worker struct {
 }
 
 type Stats struct {
-	SuccessfulRequests int           `json:"successful_requests"`
-	FailedRequests     int           `json:"failed_requests"`
-	TotalRequests      int           `json:"total_requests"`
-	AvgDelayTime       time.Duration `json:"avg_delay_time"`
+	SuccessfulRequests int `json:"successful_requests"`
+	FailedRequests     int `json:"failed_requests"`
+	TotalRequests      int `json:"total_requests"`
 	mutex              sync.Mutex
 }
 
 var Wrkr *Worker
 
-func NewWorkerNode(worker_id string, failure_percent float64, avg_delay int, logger *log.Logger, rng *rand.Rand) *Worker {
+func NewWorkerNode(worker_id string, failure_percent float64, logger *log.Logger, rng *rand.Rand) *Worker {
 	return &Worker{
 		ID:             worker_id,
 		FailurePercent: failure_percent / 100,
-		AvgDelay:       time.Duration(avg_delay) * time.Millisecond,
 		Stats:          &Stats{},
 		StatsDir:       os.Getenv("WORKER_DIR"),
 		Logger:         logger,
@@ -64,7 +61,6 @@ func Init() error {
 	rng := rand.New(source)
 
 	failurePercentStr := os.Getenv("FAIL_PERCENT")
-	avgDelayStr := os.Getenv("AVG_DELAY")
 
 	failure_percent, err := strconv.ParseFloat(failurePercentStr, 64)
 	if err != nil {
@@ -73,14 +69,7 @@ func Init() error {
 		failure_percent = 10.00
 	}
 
-	avg_delay, err := strconv.Atoi(avgDelayStr)
-	if err != nil {
-		logger.Println("Error Parsing AVG_DELAY: ", err)
-		logger.Println("Using default AVG_DELAY of 600ms")
-		avg_delay = 600
-	}
-
-	Wrkr = NewWorkerNode(worker_id, failure_percent, avg_delay, logger, rng)
+	Wrkr = NewWorkerNode(worker_id, failure_percent, logger, rng)
 
 	if err := os.MkdirAll(Wrkr.StatsDir, 0755); err != nil {
 		Wrkr.Logger.Fatalf("Failed to create stats directory: %v", err)
@@ -91,26 +80,14 @@ func Init() error {
 	return nil
 }
 
-// Function to return a random delay time, while maintaining an average delay time
-func (w *Worker) Delay() time.Duration {
-	delay := time.Duration(w.Rng.NormFloat64()*float64(w.AvgDelay/4) + float64(w.AvgDelay))
-	if delay < 0 {
-		delay = w.AvgDelay
-	}
-	return delay
-}
-
 // Synchronized function to current update statistics of worker node and write it to the stats file
-func (w *Worker) UpdateStats(success bool, delay time.Duration) {
+func (w *Worker) UpdateStats(success bool) {
 
 	// Acquire and release lock for accessing stats
 	w.Stats.mutex.Lock()
 	defer w.Stats.mutex.Unlock()
 
-	// Update current average delay time
 	w.Stats.TotalRequests++
-	totalDelayTime := (w.Stats.AvgDelayTime * time.Duration(w.Stats.TotalRequests-1)) + delay
-	w.Stats.AvgDelayTime = totalDelayTime / time.Duration(w.Stats.TotalRequests)
 
 	if success {
 		w.Stats.SuccessfulRequests++

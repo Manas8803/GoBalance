@@ -17,7 +17,6 @@ func GetStats() (*Stats, error) {
 				SuccessfulRequests: 0,
 				FailedRequests:     0,
 				TotalRequests:      0,
-				AvgDelayTime:       0,
 			}
 			defaultStatsJSON, err := json.Marshal(defaultStats)
 			if err != nil {

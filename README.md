@@ -55,11 +55,10 @@ Before you can run the application, ensure you have the following installed:
 
 ```bash
 worker: 3                 # minimum number of worker nodes
-pool: 30                  # number of incoming request
-stats-dir: /tmp/stats     # location of the stats directory
-avg-delay: 350            # average delay in ms
-failure: 20               # failure percentage
 max_workers: 6            # maximum number of worker nodes
+pool: 30                  # number of allowed concurrent incoming requests
+stats-dir: /tmp/stats     # location of the stats directory
+failure: 20               # failure percentage
 ```
 
 ## Directory Structure
