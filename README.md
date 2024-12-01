@@ -1,4 +1,6 @@
-# Application Deployment Guide
+# GoBalance
+
+![GoBalance.jpg](./assets/img.png)
 
 ## Overview
 
