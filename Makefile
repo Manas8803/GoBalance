@@ -1,4 +1,4 @@
-.PHONY: build deploy clean all all-swap
+.PHONY: build deploy clean all test
 
 build:
 	GOOS=linux GOARCH=amd64 go build -o ./deploy_scripts/assets/app_server/app_server ./app_server/main.go  
@@ -17,6 +17,9 @@ clean:
 	rm -rf ./deploy_scripts/assets/load_balancer 
 	rm -rf ./deploy_scripts/assets/app_server.zip 
 	rm -rf ./deploy_scripts/assets/load_balancer.zip
+
+test:
+	./test.sh
 
 all:
 	- make destroy

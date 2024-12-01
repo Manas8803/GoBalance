@@ -1,6 +1,10 @@
 #!/bin/bash
 
-BASE_URL="http://13.127.151.58:2000"  # Replace with your actual base URL
+# Prompt user for load balancer IPv4 address
+read -p "Enter the IPv4 address of the load balancer: " IP_ADDRESS
+
+# Construct base URL
+BASE_URL="http://${IP_ADDRESS}:2000"
 NUM_REQUESTS=20
 
 # Function to make a single request to /api/v1/hello
@@ -21,7 +25,7 @@ make_hello_request() {
 }
 
 # Make requests to /api/v1/hello
-echo "Making $NUM_REQUESTS requests to /api/v1/hello..."
+echo "Making $NUM_REQUESTS requests to /api/v1/hello at $BASE_URL..."
 
 successful_requests=0
 failed_requests=0
@@ -72,4 +76,3 @@ curl -s $BASE_URL/worker/stats | jq '.'
 
 # Cleanup temp file
 rm temp_response.txt
-

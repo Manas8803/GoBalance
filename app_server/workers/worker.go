@@ -37,7 +37,7 @@ func NewWorkerNode(worker_id string, failure_percent float64, logger *log.Logger
 		ID:             worker_id,
 		FailurePercent: failure_percent / 100,
 		Stats:          &Stats{},
-		StatsDir:       os.Getenv("WORKER_DIR"),
+		StatsDir:       os.Getenv("PWD") + os.Getenv("WORKER_DIR"),
 		Logger:         logger,
 		Rng:            rng,
 	}
