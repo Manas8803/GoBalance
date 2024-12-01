@@ -1,6 +1,8 @@
 # GoBalance
 
-![GoBalance.jpg](./assets/img.png)
+<p align="center">
+  <img src="./assets/img.png" alt="GoBalance.jpg" width="600">
+</p>
 
 ## Overview
 
